@@ -1,0 +1,21 @@
+
+---
+spring:
+  profiles: dev
+  messages:
+    basename: i18n.default
+  thymeleaf:
+    cache: false
+  config:
+    location: config/config.properties
+
+
+---
+spring:
+  profiles: prod
+  messages:
+    basename: i18n.default
+  thymeleaf:
+    cache: false
+  config:
+    location: config/config.properties

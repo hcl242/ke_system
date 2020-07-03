@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+body{
+  font-size: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: linear-gradient(0deg, #fff 50%, #2196f3);
+}
+.categoryTitle{
+	width: 100%;
+	margin-top: 100px;
+}
+.CuContainer{
+  /* text-align: center; */
+  margin: 0 auto;
+	max-width: 1000px;
+  /* width: 1000PX; */
+	position: relative;
+	display: flex;
+	justify-content: baseline;
+	flex-wrap: wrap;
+	transition: 0.5s;
+}
+.CuContainer .card{
+	position: relative;
+	height: 300px;
+  width:calc(25% - 10px);
+	margin: 5px 5px 5px 5px;
+  box-sizing: unset;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: 0.1s;
+}
+.CuContainer:hover .card{
+	filter: blur(5px);
+	transform: scale(.7);
+}
+.CuContainer .card:hover{
+	filter: blur(0px);
+	transform: scale(1);
+}
+.CuContainer .card:before{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 1;
+	transition: 0.5s;
+}
+.CuContainer .card:hover:before{
+	background: #000;
+	transform: scaleY(1.15);
+	box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+.CuContainer .card .content{
+	text-align: center;
+	z-index: 2;
+	padding: 0 20px;
+	transition: 0.5s;
+}
+.CuContainer .card:hover .content{
+	color: #fff;
+}
+.CuContainer .card .content h2{
+	font-size: 2rem;
+  font-weight: bolder;
+  display: inline-block;
+  white-space: nowrap;
+  width: 180px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+.CuContainer .card .content h3{
+	font-size: 1.8rem;
+}
+.CuContainer .card .content h4{
+	font-size: 0.9em;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  text-align: left;
+}
+.CuContainer .card .content a{
+	display: inline-block;
+  position: absolute;
+  bottom: 10px;
+	margin-top: 15px;
+	padding: 5px 10px;
+	background: #262626;
+	color: #fff;
+	text-decoration: none;
+}
+.CuContainer .card:hover .content a{
+	background: #2196f3;
+}
