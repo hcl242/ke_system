@@ -1,5 +1,5 @@
 <template>
-  <div id="main" class="login-div" style="margin: 6.25rem auto;">
+  <div id="main" class="login-div" >
     <!-- <img src="http://q1.qlogo.cn/g?b=qq&nk=945794520&s=100" /> -->
           <div class="logo" :style="'background-image: url(http://q1.qlogo.cn/g?b=qq&nk='+(username==''?'1':username)+'&s=100);'"></div>
           <div class="title">腾讯课堂辅助系统</div>
