@@ -10,12 +10,12 @@ axios.interceptors.request.use((req)=>{
   return req;
 })
 
-axios.interceptors.response.use((req)=>{
+axios.interceptors.response.use((resp)=>{
   //success
-  return req.data;
-},(req)=>{
+  return resp.data;
+},(resp)=>{
   //error
-  return req.data;
+  return resp.data;
 })
 
 export default {
