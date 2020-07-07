@@ -4,6 +4,7 @@ import main from '@/views/main.vue'
 import seat from '@/views/seat.vue'
 import curriculums from '@/views/curriculums.vue'
 import platformPage from '@/views/platformPage.vue'
+import login from '@/components/common/login.vue'
 // () => import('@/views/main.vue')
 
 Vue.use(Router)
@@ -29,6 +30,11 @@ export default new Router({
       path:'/platformPage',
       name:'platformPage',
       component : platformPage
+    },
+    {
+      path:'/login',
+      name:'login',
+      component : login
     }
   ]
 })

@@ -7,7 +7,7 @@
     				<div class="xian1"></div>
     				<div class="xian2"></div>
     			</div> -->
-    			<div class="col-lg-4" align="left">
+    			<div class="col-lg-4" align="left"  @click="to('curriculums')">
     				<div class="thumbnail" align="center">
     					<div class="col-xs-3 col-lg-12">
     						<h3>实时监控平台</h3>
@@ -75,7 +75,11 @@
       }
     },
     methods:{
-
+      to(name){
+        this.$router.push({
+          name
+        })
+      }
     }
   }
 </script>

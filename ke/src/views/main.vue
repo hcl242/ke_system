@@ -22,8 +22,7 @@
     data() {
       return {
         username:"",
-        password:"",
-        loginMessage:""
+        password:""
       }
     },
     methods:{
@@ -31,15 +30,15 @@
         var vm = this;
         this.util.Toastr.warning("2s后程序将进入自动登录操作,在成功登录之前,请勿进行任何操作!!!!!");
         setTimeout(function(){
-          vm.toCurriculums();
+          vm.toLogin();
         },2000);
       },
-      toCurriculums(){
+      toLogin(){
         if(!(typeof this.username == "undefined"||this.username==""||typeof this.password == "undefined"||this.password=="")){
            this.writeLocal();
         }
         this.$router.push({
-          name:"curriculums",
+          name:"login",
           params:{
             username:this.username,
             password:this.password
@@ -48,32 +47,31 @@
       },
       init(){
         this.util.Fetch.post(this.util.API.CHECKLOGIN).then(res=>{
-          this.loginMessage = res;
-          console.log(this.loginMessage)
-          if(this.loginMessage.loginStatus==0){
-            var data = JSON.parse(this.loginMessage.data);
+          this.$store.state.loginMessage = res;
+          console.log(this.$store.state.loginMessage)
+          if(this.$store.state.loginMessage.loginStatus==0){
+            var data = JSON.parse(this.$store.state.loginMessage.data);
             if(data.retcode==0){
               //登录成功
               this.$router.push({
-                name:"curriculums",
-                params:{
-                  loginMessage:this.loginMessage
-                }
+                name:"platformPage"
               })
               return;
             }
-          }else if(this.loginMessage.loginStatus==1){
+          }else if(this.$store.state.loginMessage.loginStatus==1){
             //账号密码错误
-            this.util.Toastr.warning(this.loginMessage.msg);
-          }else if(this.loginMessage.loginStatus==2){
+            this.util.Toastr.warning(this.$store.state.loginMessage.msg);
+          }else if(this.$store.state.loginMessage.loginStatus==2){
             //出现异常
-            this.util.Toastr.warning(this.loginMessage.msg);
+            this.util.Toastr.warning(this.$store.state.loginMessage.msg);
+          }else if(this.$store.state.loginMessage.loginStatus==3){
+            //不存在
           }else{
             //没有
           }
         })
         let msg = this.$route.params.msg;
-        let msgStauts = this.$route.params.msg;
+        let msgStauts = this.$route.params.msgStatus;
         if(!(typeof msg == "undefined"||msg=="")){
           if(msgStauts=="0"){
             this.util.Toastr.success(msg);
