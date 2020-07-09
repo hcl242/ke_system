@@ -17,11 +17,10 @@
     					</div>
     					<div class="col-xs-9 col-lg-12">
     						<h4></h4>
-    						<ul class="list-inline">
-    							<li><a href="#">学位论文库</a></li>
-    							<li><a href="#">特色资源库</a></li>
-    							<li><a href="#">机构知识库</a></li>
+    						<ul class="list-inline" v-for="(v,i) in curriculums.map_list" :key="i" v-if="i<2">
+    							<li v-for="(item,j) in v.map_courses" :key="j" v-if="j<4"><a href="#">{{item.cname}}</a></li>
     						</ul>
+
     					</div>
     				</div>
     			</div>
@@ -38,6 +37,10 @@
     						<ul class="list-inline">
     							<li><a href="#">在线数据</a></li>
     							<li><a href="#">消息数据</a></li>
+                  <li><a href="#">人数数据</a></li>
+                  <li><a href="#">统计报表</a></li>
+                  <li><a href="#">在线时间报表</a></li>
+                  <li><a href="#">消息数量报表</a></li>
     						</ul>
     					</div>
     				</div>
@@ -53,7 +56,8 @@
     					<div class="col-xs-9 col-lg-12">
     						<h4></h4>
     						<ul class="list-inline">
-    							<li><a href="#">中国经管实验教学案例库</a></li>
+    							<li><a href="#">教室成员设置</a></li>
+                  <li><a href="#">其它设置</a></li>
     						</ul>
     					</div>
     				</div>
@@ -84,8 +88,9 @@
             this.$store.state.loginMessage.loginStatus!=0){
           console.log(this.$store.state.loginMessage)
           this.to("main");
+        }else{
+          this.curriculums = JSON.parse(this.$store.state.loginMessage.data).result;
         }
-        this.curriculums = this.$store.state.loginMessage;
       }
     },
     mounted() {

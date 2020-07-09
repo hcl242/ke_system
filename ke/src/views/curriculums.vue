@@ -13,7 +13,7 @@
 
     <div v-else>
       <div class="CuContainer">
-        <div class="CuContainer" v-for="(v,i) in curriculums.result.map_list" :key="i">
+        <div class="CuContainer" v-for="(v,i) in curriculums.map_list" :key="i">
           <div class="alert alert-info categoryTitle">{{v.industry3_name}}</div>
           <div class="card"  v-for="(item,index) in v.map_courses" :key="item.room_id" @click="pushById(item.room_id)">
             <div class="content">
@@ -56,7 +56,7 @@
             return;
           }
           this.loading = false;
-          this.curriculums = data;
+          this.curriculums = data.result;
         }
       },
       pushById(roomId){
