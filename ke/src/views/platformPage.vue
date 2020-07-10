@@ -1,6 +1,6 @@
 <template>
   <div id="platformPage">
-    <div class="shou_zhu" style="background: url(../../static/img/platformPage/san.png);" >
+    <div class="shou_zhu" style="background: url(../../static/img/platformPage/san.png);height: 100%;width: 100%;position: absolute;" >
     		<div class="container">
     			<!-- <div align="center">
     				<h2><span> 课堂辅助 </span></h2>
@@ -58,6 +58,8 @@
     						<ul class="list-inline">
     							<li><a href="#">教室成员设置</a></li>
                   <li><a href="#">其它设置</a></li>
+                  <li><a href="#">关于</a></li>
+                  <li><a href="#">联系</a></li>
     						</ul>
     					</div>
     				</div>
